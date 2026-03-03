@@ -137,6 +137,72 @@ Mini-Passy Doctor
 ✓ Gateway is running on port 3333
 ```
 
+### `mini-passy provider`
+
+Manage LLM providers via CLI (alternative to editing `.env`).
+
+#### `mini-passy provider list`
+Show configured providers:
+```bash
+mini-passy provider list
+```
+**Output:**
+```
+Configured Providers:
+====================
+  openai       https://api.openai.com 🔑
+  ollama       http://localhost:11434
+```
+
+#### `mini-passy provider add`
+Add a new provider:
+```bash
+# Add Ollama (local, no key)
+mini-passy provider add ollama --url http://localhost:11434
+
+# Add OpenAI
+mini-passy provider add openai --url https://api.openai.com --key sk-xxx
+
+# Add custom endpoint
+mini-passy provider add emby --url https://api.emby.ai --key sk-xxx
+```
+
+#### `mini-passy provider remove`
+Remove a provider:
+```bash
+mini-passy provider remove ollama
+```
+
+### `mini-passy alias`
+
+Manage model aliases.
+
+#### `mini-passy alias list`
+Show all aliases:
+```bash
+mini-passy alias list
+```
+**Output:**
+```
+Configured Aliases:
+===================
+  mygpt                → openai/gpt-4o
+  local_llama          → ollama/llama3.2
+```
+
+#### `mini-passy alias add`
+Create a custom alias:
+```bash
+mini-passy alias add mygpt openai/gpt-4o
+mini-passy alias add local_llama ollama/llama3.2
+```
+
+#### `mini-passy alias remove`
+Remove an alias:
+```bash
+mini-passy alias remove mygpt
+```
+
 ## Using the Gateway
 
 Once running, the gateway is available at `http://localhost:3333`:
