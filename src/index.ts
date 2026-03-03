@@ -4,6 +4,8 @@ import { startCommand } from "./commands/start.js";
 import { modelsCommand } from "./commands/models.js";
 import { configCommand } from "./commands/config.js";
 import { doctorCommand } from "./commands/doctor.js";
+import { providerCommand } from "./commands/provider.js";
+import { aliasCommand } from "./commands/alias.js";
 
 const program = new Command();
 
@@ -16,6 +18,8 @@ program.addCommand(startCommand);
 program.addCommand(modelsCommand);
 program.addCommand(configCommand);
 program.addCommand(doctorCommand);
+program.addCommand(providerCommand);
+program.addCommand(aliasCommand);
 
 // Default: run start
 if (process.argv.length === 2) {
